@@ -1,0 +1,60 @@
+name: "pedestrian-privacy-tracker"
+namespace: "sage"
+version: "1.0.0"
+
+description: "Pedestrian-Privacy-Tracker extends pedestrian-direction-tracker with an optional Gaussian blur privacy strip over the upper region of each detected person while still estimating simple pedestrian flow (left vs right) from either a Waggle camera or a video/RTSP stream."
+authors: "Michael Cortez; Om Patel; Elizabeth Cardoso; Fatima Mora Garcia;"
+collaborators: "The Sage Team"
+funding: "NSF Grants: 2436842, 1935984, 2331263"
+license: "MIT License"
+keywords: "pedestrian, people-tracking, YOLOv8, ByteTrack, edge AI, privacy, education"
+homepage: ""
+
+source:
+  url: "https://github.com/fmora22/pedestrian-privacy-tracker"
+  branch: "main"
+  dockerfile: "Dockerfile"
+  directory: ""
+  architectures:
+    - "linux/amd64"
+
+inputs:
+  - id: "stream"
+    type: "string"
+    description: "File path or RTSP/HTTP URL. Preferred video source."
+
+  - id: "camera_fallback"
+    type: "boolean"
+    description: "If true and no stream is provided, use the Waggle camera."
+
+  - id: "camera"
+    type: "string"
+    description: "Waggle camera name (for example left or right) when camera_fallback is enabled."
+
+  - id: "model"
+    type: "string"
+    description: "YOLOv8 model size (n, s, m, l, or x)."
+
+  - id: "dir_thresh"
+    type: "int"
+    description: "Pixel displacement needed to classify movement direction."
+
+  - id: "live_output"
+    type: "boolean"
+    description: "Show live OpenCV window (for development only)."
+
+  - id: "save_output"
+    type: "boolean"
+    description: "If true, save processed video output to OUT_PATH."
+
+  - id: "privacy_enabled"
+    type: "boolean"
+    description: "If true, enable the privacy strip blur over the head region of each detected person."
+
+  - id: "head_frac"
+    type: "float"
+    description: "Fraction of the bounding box height from the top that is blurred for the privacy strip."
+
+  - id: "blur_strength"
+    type: "int"
+    description: "Strength of the Gaussian blur used in the privacy strip."
