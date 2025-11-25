@@ -1,8 +1,3 @@
-Here is a **clean, polished, student-friendly Science description** specifically tailored for your *privacy-enabled* tracker.
-It highlights **Gaussian blur**, **why it is simple**, **why it fits an educational activity**, and **how it connects to edge computing + tracking** — matching the style of the example you sent.
-
----
-
 # **Science**
 
 This application is designed primarily as an educational activity that teaches students how edge computing systems perform real-time video analysis. It combines YOLOv8 person detection, simple motion tracking, and a privacy-preserving Gaussian blur technique, allowing learners to explore multiple concepts in computer vision while keeping the workflow easy to understand.
